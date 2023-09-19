@@ -1,0 +1,17 @@
+menu "Example Configuration"
+
+    config RESET_TIME_1
+        int "reset time in s for task 1"
+        default 7 if IDF_TARGET_ESP32
+        default 10
+        help
+            Reset time in s.
+
+    config RESET_TIME_2
+        int "reset time in s for task 2"
+        default 5 if IDF_TARGET_ESP32
+        default 8
+        help
+            Reset time in s.
+
+endmenu
