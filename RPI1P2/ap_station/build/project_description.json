@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "ap_station",
-    "project_version":    "e86703c-dirty",
+    "project_version":    "85848cc-dirty",
     "project_path":       "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station",
     "idf_path":           "/home/danrec/esp/esp-idf",
     "build_dir":          "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build",
