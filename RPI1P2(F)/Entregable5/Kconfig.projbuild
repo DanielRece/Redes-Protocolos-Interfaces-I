@@ -1,0 +1,46 @@
+menu "Example Configuration"
+
+    config WIFI_SSID1
+        string "1 - WiFi SSID"
+        default "myssid"
+        help
+            SSID (network name) for the example to connect to.
+
+    config WIFI_PASS1
+        string "1 - WiFi Password"
+        default "mypassword"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+            
+    config WIFI_SSID2
+        string "2 - WiFi SSID"
+        default ""
+        help
+            SSID (network name) for the example to connect to.
+
+    config WIFI_PASS2
+        string "2 - WiFi Password"
+        default ""
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+            
+    config WIFI_SSID3
+        string "3 - WiFi SSID"
+        default ""
+        help
+            SSID (network name) for the example to connect to.
+
+    config WIFI_PASS3
+        string "3 - WiFi Password"
+        default ""
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+
+    config EXAMPLE_SCAN_LIST_SIZE
+        int "Max size of scan list"
+        range 0 20
+        default 10
+        help
+            The size of array that will be used to retrieve the list of access points.
+
+endmenu
