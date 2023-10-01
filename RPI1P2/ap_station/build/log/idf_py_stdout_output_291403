@@ -1,0 +1,5 @@
+[1/4] cd /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build/esp-idf/esptool_py && /home/danrec/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/danrec/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build/partition_table/partition-table.bin /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build/ap_station.bin
+ap_station.bin binary size 0xb9b10 bytes. Smallest app partition is 0x100000 bytes. 0x464f0 bytes (27%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build/bootloader/esp-idf/esptool_py && /home/danrec/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/danrec/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/ap_station/build/bootloader/bootloader.bin
+Bootloader binary size 0x6910 bytes. 0x6f0 bytes (6%) free.
