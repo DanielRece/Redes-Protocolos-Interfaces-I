@@ -110,3 +110,5 @@
 1	7584	1696180612085966826	build.ninja	c24e484c794f7ea5
 3	142	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	df4dd82dde0d5bf7
 3	142	0	/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/station/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	df4dd82dde0d5bf7
+3	48	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	df4dd82dde0d5bf7
+3	48	0	/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/station/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	df4dd82dde0d5bf7

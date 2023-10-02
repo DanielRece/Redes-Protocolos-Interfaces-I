@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "wifi_station",
-    "project_version":    "39314c7-dirty",
+    "project_version":    "250bcac-dirty",
     "project_path":       "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/station",
     "idf_path":           "/home/danrec/esp/esp-idf",
     "build_dir":          "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/station/build",

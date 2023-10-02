@@ -1,4 +1,4 @@
-# Install script for directory: /home/danrec/git/Redes-Protocolos-Interfaces-I/scan/main
+# Install script for directory: /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/scan/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-/* * Data converted from /home/danrec/git/Redes-Protocolos-Interfaces-I/scan/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/scan/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded
