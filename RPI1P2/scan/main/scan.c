@@ -75,7 +75,6 @@ static void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data)
 {
     if (event_base == WIFI_EVENT){
-        ESP_LOGI(TAG, "LLEGO AQUII");
         switch (event_id)
         {
             case WIFI_EVENT_SCAN_DONE:
@@ -249,7 +248,6 @@ static int wifi_scan(known_network kn[])
     ESP_LOGI(TAG, "Total APs scanned = %u", ap_count);
     for (int i = 0; (i < DEFAULT_SCAN_LIST_SIZE) && (i < ap_count); i++) {
         ESP_LOGI(TAG, "SSID \t\t%s", ap_info[i].ssid);
-        /*Establecer aquí la prioridad de conexión*/
         ESP_LOGI(TAG, "RSSI \t\t%d", ap_info[i].rssi);
         print_auth_mode(ap_info[i].authmode);
         if (ap_info[i].authmode != WIFI_AUTH_WEP) {
@@ -259,25 +257,26 @@ static int wifi_scan(known_network kn[])
         for (int j = 0; j< 2; j++){
             if(*kn[j].ssid == *ap_info[i].ssid){
                 if(kn[j].priority > red){
-                    red = (kn[j].priority)-1;
+                    red = (kn[j].priority) -1;
                 }
             }
         }
     }
+    ESP_ERROR_CHECK(esp_wifi_stop());
     return red;
 }
 
 void wifi_init_sta(known_network kn)
 {
     s_wifi_event_group = xEventGroupCreate();
-
-    /*ESP_ERROR_CHECK(esp_netif_init());
+    /*
+    ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     esp_netif_create_default_wifi_sta();
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));*/
-
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+    */
     esp_event_handler_instance_t instance_any_id;
     esp_event_handler_instance_t instance_got_ip;
     ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT,
@@ -293,8 +292,8 @@ void wifi_init_sta(known_network kn)
 
     wifi_config_t wifi_config = {
         .sta = {
-            .ssid = {*kn.ssid},
-            .password = {*kn.password},
+            .ssid = {&kn.ssid},
+            .password = {&kn.password},
             /* Authmode threshold resets to WPA2 as default if password matches WPA2 standards (pasword len => 8).
              * If you want to connect the device to deprecated WEP/WPA networks, Please set the threshold value
              * to WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK and set the password with length and format matching to
@@ -305,8 +304,8 @@ void wifi_init_sta(known_network kn)
             .sae_h2e_identifier = EXAMPLE_H2E_IDENTIFIER,
         },
     };
-    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
-    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start() );
 
     ESP_LOGI(TAG, "wifi_init_sta finished.");
@@ -340,24 +339,25 @@ void app_main(void)
         ESP_ERROR_CHECK(nvs_flash_erase());
         ret = nvs_flash_init();
     }
+    known_network kn0;
+    kn0.priority = 0;
+    kn0.ssid = "VMax";
+    kn0.password = "12345678";
+
     known_network kn1;
     kn1.priority = 1;
-    kn1.ssid = "VMax";
-    kn1.password = "12345678";
-
-    known_network kn2;
-    kn2.priority = 2;
-    kn2.ssid = "VMax2";
-    kn2.password = "12345678";
+    kn1.ssid = "rpi-miot";
+    kn1.password = "RPI-MIOT-2223";
 
     known_network known_networks[2];
-    known_networks[kn1.priority-1] = kn1;
-    known_networks[kn2.priority-1] = kn2;
+    known_networks[0] = kn0;
+    known_networks[1] = kn1;
 
     ESP_ERROR_CHECK( ret );
     int red = wifi_scan(known_networks);
     if (red != -1)
     {
+        ESP_LOGI(TAG, "RED %d", red);
         ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
         wifi_init_sta(known_networks[red]);
     }

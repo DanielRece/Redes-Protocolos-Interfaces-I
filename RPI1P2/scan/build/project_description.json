@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "scan",
-    "project_version":    "250bcac-dirty",
+    "project_version":    "64e7eaa-dirty",
     "project_path":       "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/scan",
     "idf_path":           "/home/danrec/esp/esp-idf",
     "build_dir":          "/home/danrec/git/Redes-Protocolos-Interfaces-I/RPI1P2/scan/build",
