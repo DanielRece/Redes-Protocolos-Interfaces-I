@@ -1,0 +1,146 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (30) boot: ESP-IDF v5.2-dev-2756-g2bc1f2f574 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Oct  2 2023 19:19:41[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00140000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2ae48h (175688) map[0m
+[0;32mI (168) esp_image: segment 1: paddr=0003ae70 vaddr=3ffbdb60 size=04f60h ( 20320) load[0m
+[0;32mI (177) esp_image: segment 2: paddr=0003fdd8 vaddr=40080000 size=00240h (   576) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=9d440h (644160) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=000dd468 vaddr=40080240 size=16cd8h ( 93400) load[0m
+[0;32mI (466) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (466) boot: Disabling RNG early entropy source...[0m
+[0;32mI (478) cpu_start: Multicore app[0m
+[0;32mI (478) cpu_start: Pro cpu up.[0m
+[0;32mI (478) cpu_start: Starting app cpu, entry point is 0x40081214[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (496) cpu_start: Pro cpu start user code[0m
+[0;32mI (496) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (496) cpu_start: Application information:[0m
+[0;32mI (501) cpu_start: Project name:     wifi_prov_mgr[0m
+[0;32mI (506) cpu_start: App version:      b0ea816-dirty[0m
+[0;32mI (512) cpu_start: Compile time:     Oct  2 2023 19:34:22[0m
+[0;32mI (518) cpu_start: ELF file SHA256:  eb1cb1fa8...[0m
+[0;32mI (523) cpu_start: ESP-IDF:          v5.2-dev-2756-g2bc1f2f574[0m
+[0;32mI (530) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (534) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (539) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (544) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (551) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (557) heap_init: At 3FFC6BC0 len 00019440 (101 KiB): DRAM[0m
+[0;32mI (563) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (570) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (576) heap_init: At 40096F18 len 000090E8 (36 KiB): IRAM[0m
+[0;32mI (584) spi_flash: detected chip: generic[0m
+[0;32mI (587) spi_flash: flash io: dio[0m
+[0;33mW (591) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (610) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (614) app_start: Starting scheduler on CPU1[0m
+I (614) main_task: Started on CPU0[0m
+[0;32mI (624) main_task: Calling app_main()[0m
+I (654) wifi:wifi driver task: 3ffb8098, prio:23, stack:6656, core=0
+I (654) wifi:wifi firmware version: e03c1ca
+I (654) wifi:wifi certification version: v7.0
+I (654) wifi:config NVS flash: enabled
+I (654) wifi:config nano formating: disabled
+I (664) wifi:Init data frame dynamic rx buffer num: 32
+I (664) wifi:Init management frame dynamic rx buffer num: 32
+I (674) wifi:Init management short buffer num: 32
+I (674) wifi:Init dynamic tx buffer num: 32
+I (684) wifi:Init static rx buffer size: 1600
+I (684) wifi:Init static rx buffer num: 10
+I (684) wifi:Init dynamic rx buffer num: 32
+[0;32mI (694) wifi_init: rx ba win: 6[0m
+[0;32mI (694) wifi_init: tcpip mbox: 32[0m
+[0;32mI (694) wifi_init: udp mbox: 6[0m
+[0;32mI (704) wifi_init: tcp mbox: 6[0m
+[0;32mI (704) wifi_init: tcp tx win: 5744[0m
+[0;32mI (714) wifi_init: tcp rx win: 5744[0m
+[0;32mI (714) wifi_init: tcp mss: 1440[0m
+[0;32mI (714) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (724) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (724) app: Starting provisioning[0m
+[0;32mI (734) app: Development mode: using hard coded salt[0m
+[0;32mI (734) app: Development mode: using hard coded verifier[0m
+[0;32mI (744) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (824) wifi:mode : sta (24:0a:c4:ea:38:40)
+I (834) wifi:enable tsf
+I (844) wifi:mode : sta (24:0a:c4:ea:38:40) + softAP (24:0a:c4:ea:38:41)
+I (844) wifi:Total power save buffer number: 16
+I (844) wifi:Init max length of beacon: 752/752
+I (844) wifi:Init max length of beacon: 752/752
+[0;32mI (854) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+I (854) wifi:Total power save buffer number: 16
+[0;32mI (864) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (874) wifi_prov_mgr: Provisioning started with service name : PROV_EA3840 [0m
+[0;32mI (874) app: Provisioning started[0m
+[0;32mI (884) app: Scan this QR code from the provisioning application for Provisioning.[0m
+[0;32mI (894) QRCODE: Encoding below text with ECC LVL 0 & QR Code Version 10[0m
+[0;32mI (894) QRCODE: {"ver":"v1","name":"PROV_EA3840","username":"wifiprov","pop":"abcd1234","transport":"softap"}[0m
+                                          
+  █▀▀▀▀▀█ █  ▄▄ ▀▀█▄▄▄█▄▀▀▄▄▀▀  █▀▀▀▀▀█   
+  █ ███ █ ██▄ █▄█▄▀▀▀▀▄▀▀█▄▄ ▄█ █ ███ █   
+  █ ▀▀▀ █ ▄██ ▀▀▀▀▀  ▄▀█▄▀ ▀█▀  █ ▀▀▀ █   
+  ▀▀▀▀▀▀▀ ▀ █▄▀ ▀ █▄▀ ▀▄▀▄▀ ▀▄█ ▀▀▀▀▀▀▀   
+  ▀█ ▄▀▀▀▄▄▄▀ ▀▄ ▄ ▀█▀▄▀██▀▄ ▄▀▄ █▄▀▀▀▀   
+  █ ▄▀▀▄▀▀ █▀ ▄ ▀▀█▄  ▄▄▄▀▄ ██▀██ ▀█▄█▄   
+    █ █▄▀   ▀▀▄▄▄█▀██▀▀▀ ▄▀▄ ▄▀ ▀█▄▀█▄▀   
+   █▄▀█▄▀  ▄▄█▀ ▄▀██▀▄▀▄██▀▀▄███▄█ █▄     
+  █▀▄▄▀▄▀ ██  ▀▄ ▄ ▀█▀▀█ █▀▄▄█▀██▀▄ ▀▀▀   
+  █▀▀▄  ▀▄ ▀▀ ▄  █▀▄ ▄ █▄▀█ █▀▄█ █▄▀▄▄▄   
+  ▀█ ▀▄ ▀ █▄▄▀▄▄█▄█▀ ▀▀▀ ▄ ▄ ▄▀██▀▄█▀█▀   
+  ▄ ▀▄██▀█ ▀██▀▀ ▀██▀ ▀▄█▀ ▀ █▄█▄▀ █▄▄▄   
+  ██ ▀▀▄▀▄█▀█ ▀  ▄█▀ ▀▀▀█▄█ ▄ ▄▀█▀▄▀▀ ▀   
+    ▄▀ █▀█▀█  ▄ █▀ ▄ ▄ ██▀ ▀▀█  █▄█▄█▀▄   
+  ▀▀ ▀▀ ▀ █▀▄▀▄▀██▄▀▄▀██▀█▄▄▄ █▀▀▀█ ▀▄    
+  █▀▀▀▀▀█ ▄▀▄█▀█▀███▄▄ ▄ ▀  ▄▀█ ▀ ██▄     
+  █ ███ █ ▀▀  ▀█▄▄██▄ ▄▀█▄█ ▄▄████▀▄██▄   
+  █ ▀▀▀ █ ▄▀▄ ▄ ▄▀▄▄▀▄ ████ █ ▄  ▀▄██▄    
+  ▀▀▀▀▀▀▀ ▀▀▀▀ ▀▀ ▀▀ ▀▀▀  ▀  ▀   ▀▀ ▀▀▀   
+                                          
+
+[0;32mI (1174) app: If QR code is not visible, copy paste the below URL in a browser.
+https://espressif.github.io/esp-jumpstart/qrcode.html?data={"ver":"v1","name":"PROV_EA3840","username":"wifiprov","pop":"abcd1234","transport":"softap"}[0m
+I (65924) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<0,0>, prof:1
+I (65924) wifi:station: 86:31:ff:fa:2f:a2 join, AID=1, bgn, 20
+[0;32mI (65924) app: SoftAP transport: Connected![0m
+I (66114) wifi:<ba-add>idx:2 (ifx:1, 86:31:ff:fa:2f:a2), tid:0, ssn:0, winSize:64
+[0;32mI (66114) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (67364) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (71364) security2: Using salt and verifier to generate public key...[0m
+[0;31mE (71834) security2: Failed to authenticate client proof![0m
+[0;31mE (71834) security2: Session setup error -1[0m
+[0;31mE (71844) protocomm_httpd: Data handler failed[0m
+[0;31mE (71844) app: Received incorrect username and/or PoP for establishing secure session![0m
+[0;33mW (71844) httpd_uri: httpd_uri: uri handler execution failed[0m
+I (71994) wifi:<ba-add>idx:3 (ifx:1, 86:31:ff:fa:2f:a2), tid:1, ssn:0, winSize:64
+[0;33mW (83284) security2: Invalid state of session 0 (expected 1). Restarting session.[0m
+[0;31mE (83284) security2: Closing old session with id 814759127[0m
+[0;32mI (83284) security2: Using salt and verifier to generate public key...[0m
+[0;31mE (83794) security2: Failed to authenticate client proof![0m
+[0;31mE (83794) security2: Session setup error -1[0m
+[0;31mE (83794) app: Received incorrect username and/or PoP for establishing secure session![0m
+[0;31mE (83794) protocomm_httpd: Data handler failed[0m
+[0;33mW (83804) httpd_uri: httpd_uri: uri handler execution failed[0m

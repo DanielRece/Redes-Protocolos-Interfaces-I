@@ -1,0 +1,232 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (30) boot: ESP-IDF v5.2-dev-2756-g2bc1f2f574 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Oct  2 2023 19:19:41[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00140000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2ae48h (175688) map[0m
+[0;32mI (169) esp_image: segment 1: paddr=0003ae70 vaddr=3ffbdb60 size=04f60h ( 20320) load[0m
+[0;32mI (177) esp_image: segment 2: paddr=0003fdd8 vaddr=40080000 size=00240h (   576) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=9d440h (644160) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=000dd468 vaddr=40080240 size=16cd8h ( 93400) load[0m
+[0;32mI (466) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (466) boot: Disabling RNG early entropy source...[0m
+[0;32mI (478) cpu_start: Multicore app[0m
+[0;32mI (478) cpu_start: Pro cpu up.[0m
+[0;32mI (478) cpu_start: Starting app cpu, entry point is 0x40081214[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (496) cpu_start: Pro cpu start user code[0m
+[0;32mI (496) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (496) cpu_start: Application information:[0m
+[0;32mI (501) cpu_start: Project name:     wifi_prov_mgr[0m
+[0;32mI (506) cpu_start: App version:      b0ea816-dirty[0m
+[0;32mI (512) cpu_start: Compile time:     Oct  2 2023 19:34:22[0m
+[0;32mI (518) cpu_start: ELF file SHA256:  eb1cb1fa8...[0m
+[0;32mI (523) cpu_start: ESP-IDF:          v5.2-dev-2756-g2bc1f2f574[0m
+[0;32mI (530) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (534) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (539) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (544) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (551) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (557) heap_init: At 3FFC6BC0 len 00019440 (101 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (570) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (576) heap_init: At 40096F18 len 000090E8 (36 KiB): IRAM[0m
+[0;32mI (584) spi_flash: detected chip: generic[0m
+[0;32mI (587) spi_flash: flash io: dio[0m
+[0;33mW (591) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (610) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (615) app_start: Starting scheduler on CPU1[0m
+I (615) main_task: Started on CPU0[0m
+[0;32mI (625) main_task: Calling app_main()[0m
+I (675) wifi:wifi driver task: 3ffb81a0, prio:23, stack:6656, core=0
+I (685) wifi:wifi firmware version: e03c1ca
+I (685) wifi:wifi certification version: v7.0
+I (685) wifi:config NVS flash: enabled
+I (695) wifi:config nano formating: disabled
+I (695) wifi:Init data frame dynamic rx buffer num: 32
+I (695) wifi:Init management frame dynamic rx buffer num: 32
+I (705) wifi:Init management short buffer num: 32
+I (705) wifi:Init dynamic tx buffer num: 32
+I (715) wifi:Init static rx buffer size: 1600
+I (715) wifi:Init static rx buffer num: 10
+I (725) wifi:Init dynamic rx buffer num: 32
+[0;32mI (725) wifi_init: rx ba win: 6[0m
+[0;32mI (725) wifi_init: tcpip mbox: 32[0m
+[0;32mI (735) wifi_init: udp mbox: 6[0m
+[0;32mI (735) wifi_init: tcp mbox: 6[0m
+[0;32mI (735) wifi_init: tcp tx win: 5744[0m
+[0;32mI (745) wifi_init: tcp rx win: 5744[0m
+[0;32mI (745) wifi_init: tcp mss: 1440[0m
+[0;32mI (755) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (755) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (765) app: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (765) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (845) wifi:mode : sta (24:0a:c4:ea:36:c8)
+I (845) wifi:enable tsf
+I (3265) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+I (3265) wifi:state: init -> auth (b0)
+I (3275) wifi:state: auth -> assoc (0)
+I (3285) wifi:state: assoc -> run (10)
+W (3395) wifi:[ADDBA]rx delba, code:39, delete tid:6
+I (3405) wifi:<ba-add>idx:0 (ifx:0, e4:95:6e:45:b8:b8), tid:0, ssn:3, winSize:64
+I (3515) wifi:connected with rpi-miot, aid = 4, channel 1, BW20, bssid = e4:95:6e:45:b8:b8
+I (3515) wifi:security: WPA2-PSK, phy: bgn, rssi: -54
+I (3525) wifi:pm start, type: 1
+
+I (3545) wifi:<ba-add>idx:1 (ifx:0, e4:95:6e:45:b8:b8), tid:6, ssn:1, winSize:64
+I (3595) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (4525) app: Connected with IP Address:192.168.8.190[0m
+[0;32mI (4525) esp_netif_handlers: sta ip: 192.168.8.190, mask: 255.255.255.0, gw: 192.168.8.1[0m
+[0;32mI (4525) app: Hello World![0m
+[0;32mI (5525) app: Hello World![0m
+[0;32mI (6525) app: Hello World![0m
+[0;32mI (7525) app: Hello World![0m
+[0;32mI (8525) app: Hello World![0m
+I (8615) wifi:<ba-del>idx:0, tid:0
+I (8625) wifi:<ba-add>idx:0 (ifx:0, e4:95:6e:45:b8:b8), tid:0, ssn:5, winSize:64
+[0;32mI (9525) app: Hello World![0m
+[0;32mI (10525) app: Hello World![0m
+[0;32mI (11525) app: Hello World![0m
+[0;32mI (12525) app: Hello World![0m
+[0;32mI (13525) app: Hello World![0m
+[0;32mI (14525) app: Hello World![0m
+[0;32mI (15525) app: Hello World![0m
+[0;32mI (16525) app: Hello World![0m
+[0;32mI (17525) app: Hello World![0m
+[0;32mI (18525) app: Hello World![0m
+[0;32mI (19525) app: Hello World![0m
+[0;32mI (20525) app: Hello World![0m
+[0;32mI (21525) app: Hello World![0m
+[0;32mI (22525) app: Hello World![0m
+[0;32mI (23525) app: Hello World![0m
+[0;32mI (24525) app: Hello World![0m
+[0;32mI (25525) app: Hello World![0m
+[0;32mI (26525) app: Hello World![0m
+[0;32mI (27525) app: Hello World![0m
+[0;32mI (28525) app: Hello World![0m
+[0;32mI (29525) app: Hello World![0m
+[0;32mI (30525) app: Hello World![0m
+[0;32mI (31525) app: Hello World![0m
+[0;32mI (32525) app: Hello World![0m
+[0;32mI (33525) app: Hello World![0m
+[0;32mI (34525) app: Hello World![0m
+[0;32mI (35525) app: Hello World![0m
+[0;32mI (36525) app: Hello World![0m
+[0;32mI (37525) app: Hello World![0m
+[0;32mI (38525) app: Hello World![0m
+[0;32mI (39525) app: Hello World![0m
+[0;32mI (40525) app: Hello World![0m
+[0;32mI (41525) app: Hello World![0m
+[0;32mI (42525) app: Hello World![0m
+[0;32mI (43525) app: Hello World![0m
+[0;32mI (44525) app: Hello World![0m
+[0;32mI (45525) app: Hello World![0m
+[0;32mI (46525) app: Hello World![0m
+[0;32mI (47525) app: Hello World![0m
+[0;32mI (48525) app: Hello World![0m
+[0;32mI (49525) app: Hello World![0m
+[0;32mI (50525) app: Hello World![0m
+[0;32mI (51525) app: Hello World![0m
+[0;32mI (52525) app: Hello World![0m
+[0;32mI (53525) app: Hello World![0m
+[0;32mI (54525) app: Hello World![0m
+[0;32mI (55525) app: Hello World![0m
+[0;32mI (56525) app: Hello World![0m
+[0;32mI (57525) app: Hello World![0m
+[0;32mI (58525) app: Hello World![0m
+[0;32mI (59525) app: Hello World![0m
+[0;32mI (60525) app: Hello World![0m
+[0;32mI (61525) app: Hello World![0m
+[0;32mI (62525) app: Hello World![0m
+[0;32mI (63525) app: Hello World![0m
+[0;32mI (64525) app: Hello World![0m
+[0;32mI (65525) app: Hello World![0m
+[0;32mI (66525) app: Hello World![0m
+[0;32mI (67525) app: Hello World![0m
+[0;32mI (68525) app: Hello World![0m
+[0;32mI (69525) app: Hello World![0m
+[0;32mI (70525) app: Hello World![0m
+[0;32mI (71525) app: Hello World![0m
+[0;32mI (72525) app: Hello World![0m
+[0;32mI (73525) app: Hello World![0m
+[0;32mI (74525) app: Hello World![0m
+[0;32mI (75525) app: Hello World![0m
+[0;32mI (76525) app: Hello World![0m
+[0;32mI (77525) app: Hello World![0m
+[0;32mI (78525) app: Hello World![0m
+[0;32mI (79525) app: Hello World![0m
+[0;32mI (80525) app: Hello World![0m
+[0;32mI (81525) app: Hello World![0m
+[0;32mI (82525) app: Hello World![0m
+[0;32mI (83525) app: Hello World![0m
+[0;32mI (84525) app: Hello World![0m
+[0;32mI (85525) app: Hello World![0m
+[0;32mI (86525) app: Hello World![0m
+[0;32mI (87525) app: Hello World![0m
+[0;32mI (88525) app: Hello World![0m
+[0;32mI (89525) app: Hello World![0m
+[0;32mI (90525) app: Hello World![0m
+[0;32mI (91525) app: Hello World![0m
+[0;32mI (92525) app: Hello World![0m
+[0;32mI (93525) app: Hello World![0m
+[0;32mI (94525) app: Hello World![0m
+[0;32mI (95525) app: Hello World![0m
+[0;32mI (96525) app: Hello World![0m
+[0;32mI (97525) app: Hello World![0m
+[0;32mI (98525) app: Hello World![0m
+[0;32mI (99525) app: Hello World![0m
+[0;32mI (100525) app: Hello World![0m
+[0;32mI (101525) app: Hello World![0m
+[0;32mI (102525) app: Hello World![0m
+[0;32mI (103525) app: Hello World![0m
+[0;32mI (104525) app: Hello World![0m
+[0;32mI (105525) app: Hello World![0m
+[0;32mI (106525) app: Hello World![0m
+[0;32mI (107525) app: Hello World![0m
+[0;32mI (108525) app: Hello World![0m
+[0;32mI (109525) app: Hello World![0m
+[0;32mI (110525) app: Hello World![0m
+[0;32mI (111525) app: Hello World![0m
+[0;32mI (112525) app: Hello World![0m
+[0;32mI (113525) app: Hello World![0m
+[0;32mI (114525) app: Hello World![0m
+[0;32mI (115525) app: Hello World![0m
+[0;32mI (116525) app: Hello World![0m
+[0;32mI (117525) app: Hello World![0m
+[0;32mI (118525) app: Hello World![0m
+[0;32mI (119525) app: Hello World![0m
+[0;32mI (120525) app: Hello World![0m
+[0;32mI (121525) app: Hello World![0m
+[0;32mI (122525) app: Hello World![0m
+[0;32mI (123525) app: Hello World![0m
+[0;32mI (124525) app: Hello World![0m
+[0;32mI (125525) app: Hello World![0m
+[0;32mI (126525) app: Hello World![0m
+[0;32mI (127525) app: Hello World![0m
+[0;32mI (128525) app: Hello World![0m
+[0;32mI (129525) app: Hello World![0m
+[0;32mI (130525) app: Hello World![0m
+[0;32mI (131525) app: Hello World![0m
+[0;32mI (132525) app: Hello World![0m

@@ -114,11 +114,6 @@ static void ip_handler(void* arg, esp_event_base_t event_base, int32_t event_id,
     xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
 }
 
-
-
-
-
-
 void wifi_init_sta(void)
 {
     s_wifi_event_group = xEventGroupCreate();

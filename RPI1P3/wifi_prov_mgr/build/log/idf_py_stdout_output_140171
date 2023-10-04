@@ -1,0 +1,219 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (30) boot: ESP-IDF v5.2-dev-2756-g2bc1f2f574 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct  2 2023 19:19:41[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00140000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2ae48h (175688) map[0m
+[0;32mI (169) esp_image: segment 1: paddr=0003ae70 vaddr=3ffbdb60 size=04f60h ( 20320) load[0m
+[0;32mI (177) esp_image: segment 2: paddr=0003fdd8 vaddr=40080000 size=00240h (   576) load[0m
+[0;32mI (177) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=9d440h (644160) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=000dd468 vaddr=40080240 size=16cd8h ( 93400) load[0m
+[0;32mI (466) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (466) boot: Disabling RNG early entropy source...[0m
+[0;32mI (478) cpu_start: Multicore app[0m
+[0;32mI (478) cpu_start: Pro cpu up.[0m
+[0;32mI (478) cpu_start: Starting app cpu, entry point is 0x40081214[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (496) cpu_start: Pro cpu start user code[0m
+[0;32mI (496) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (496) cpu_start: Application information:[0m
+[0;32mI (501) cpu_start: Project name:     wifi_prov_mgr[0m
+[0;32mI (506) cpu_start: App version:      b0ea816-dirty[0m
+[0;32mI (512) cpu_start: Compile time:     Oct  2 2023 19:34:22[0m
+[0;32mI (518) cpu_start: ELF file SHA256:  eb1cb1fa8...[0m
+[0;32mI (523) cpu_start: ESP-IDF:          v5.2-dev-2756-g2bc1f2f574[0m
+[0;32mI (530) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (535) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (539) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (544) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (552) heap_init: At 3FFAE6E0 len 0000F480 (61 KiB): DRAM[0m
+[0;32mI (557) heap_init: At 3FFC6BC0 len 00019440 (101 KiB): DRAM[0m
+[0;32mI (564) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (570) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (577) heap_init: At 40096F18 len 000090E8 (36 KiB): IRAM[0m
+[0;32mI (584) spi_flash: detected chip: generic[0m
+[0;32mI (587) spi_flash: flash io: dio[0m
+[0;33mW (591) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (605) coexist: coex firmware version: 80b0d89[0m
+[0;32mI (610) app_start: Starting scheduler on CPU0[0m
+[0;32m[0;32mI (615) app_start: Starting scheduler on CPU1[0m
+I (615) main_task: Started on CPU0[0m
+[0;32mI (625) main_task: Calling app_main()[0m
+I (655) wifi:wifi driver task: 3ffb8098, prio:23, stack:6656, core=0
+I (655) wifi:wifi firmware version: e03c1ca
+I (655) wifi:wifi certification version: v7.0
+I (655) wifi:config NVS flash: enabled
+I (655) wifi:config nano formating: disabled
+I (665) wifi:Init data frame dynamic rx buffer num: 32
+I (665) wifi:Init management frame dynamic rx buffer num: 32
+I (675) wifi:Init management short buffer num: 32
+I (675) wifi:Init dynamic tx buffer num: 32
+I (685) wifi:Init static rx buffer size: 1600
+I (685) wifi:Init static rx buffer num: 10
+I (685) wifi:Init dynamic rx buffer num: 32
+[0;32mI (695) wifi_init: rx ba win: 6[0m
+[0;32mI (695) wifi_init: tcpip mbox: 32[0m
+[0;32mI (695) wifi_init: udp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp mbox: 6[0m
+[0;32mI (705) wifi_init: tcp tx win: 5744[0m
+[0;32mI (715) wifi_init: tcp rx win: 5744[0m
+[0;32mI (715) wifi_init: tcp mss: 1440[0m
+[0;32mI (715) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (725) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (725) app: Starting provisioning[0m
+[0;32mI (735) app: Development mode: using hard coded salt[0m
+[0;32mI (735) app: Development mode: using hard coded verifier[0m
+[0;32mI (745) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (835) wifi:mode : sta (24:0a:c4:ea:36:c8)
+I (835) wifi:enable tsf
+I (845) wifi:mode : sta (24:0a:c4:ea:36:c8) + softAP (24:0a:c4:ea:36:c9)
+I (845) wifi:Total power save buffer number: 16
+I (845) wifi:Init max length of beacon: 752/752
+I (845) wifi:Init max length of beacon: 752/752
+[0;32mI (855) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+I (855) wifi:Total power save buffer number: 16
+[0;32mI (865) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (875) wifi_prov_mgr: Provisioning started with service name : PROV_EA36C8 [0m
+[0;32mI (885) app: Provisioning started[0m
+[0;32mI (885) app: Scan this QR code from the provisioning application for Provisioning.[0m
+[0;32mI (895) QRCODE: Encoding below text with ECC LVL 0 & QR Code Version 10[0m
+[0;32mI (905) QRCODE: {"ver":"v1","name":"PROV_EA36C8","username":"wifiprov","pop":"abcd1234","transport":"softap"}[0m
+                                          
+  █▀▀▀▀▀█ ▀▀▀█▄ ▀ ▄█▄▄██  ▄▄▀ ▀ █▀▀▀▀▀█   
+  █ ███ █  ▀▄█ █▀ ▀▄▄  █▀ ▀█▄ █ █ ███ █   
+  █ ▀▀▀ █  ▄▀█▀▄█ ██ ▀█▄ ▄ ▄▀ ▄ █ ▀▀▀ █   
+  ▀▀▀▀▀▀▀ █▄▀ █▄█▄▀ █▄█ █ █▄█ ▀ ▀▀▀▀▀▀▀   
+  ▀█ ██▄▀ ▄▀▄ ▀ ▀██▀███  █▀ ▀▄▄▄▀ ▄ ▄ ▀   
+  ▄ ▄▀▄█▀▀▀█▀ ▀  █▄▄█ █ █▀▀ ▄███   ▀██▀   
+  ██ ▀  ▀▄▄▀█ ▄▄▄▄ ▄█▀▀ ▀█▀▄ ▀█▀▀█▄ ▄█▀   
+  ▀▄█▄▀█▀▄▄▄█ ▄▀ ██ ▄██ █ ▄  █▀ ▀▄▄▀▄██   
+  ▀  ▀ ▀▀▀ ▄▀█▀▀▄█▄▄█▄█▄▄ ▀▀ ██ █▄ ▀█▄▀   
+  ▄▄▄▀▀▀▀█ ▄▄▄▀██▀█ █▀█▀ █ █ █ ▀█ ▀█  ▀   
+   ▀ ▀ ▀▀▄ ▀▄▀▄ ▄█ ▀ █  █▄  ▀█▄████▄▄█▀   
+  ██▄ █ ▀▀▄█▀█▄▀▀█▄█▄   ▄▀█▀▀▀██▀▀▀▀█▄▀   
+  ▄█▀█ █▀▀ ▀█▀▀  █▄  ▀▀ ▄██ ▄▀█ █▀▄  ▀▀   
+  █▀▄▄▀▄▀▄█▀▄█▀▀▀█ ▀██▄▀█▄█ █▀ █ █▀ █▄▀   
+  ▀ ▀▀ ▀▀ ▄▄█▄▄▄▀▄ ▄▄▄▀▄█ ▄▀ ▀█▀▀▀█▀█▀    
+  █▀▀▀▀▀█  ▄█▀▄ ▄▀▀▀▀▀█ ▄███▀██ ▀ █▀ ▄█   
+  █ ███ █ ██▄ ▀▀██ █▄▄█  ▄█▄██▀██▀▀█ █▄   
+  █ ▀▀▀ █ ▄▄█ ▀ ███▄▄▄▀▀▄█  ▄▄█ █▀█▀▄▄█   
+  ▀▀▀▀▀▀▀ ▀▀▀  ▀▀▀   ▀▀ ▀▀▀   ▀▀ ▀▀▀  ▀   
+                                          
+
+[0;32mI (1175) app: If QR code is not visible, copy paste the below URL in a browser.
+https://espressif.github.io/esp-jumpstart/qrcode.html?data={"ver":"v1","name":"PROV_EA36C8","username":"wifiprov","pop":"abcd1234","transport":"softap"}[0m
+I (208475) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<0,0>, prof:1
+I (208475) wifi:station: a6:a7:33:a5:b4:02 join, AID=1, bgn, 20
+[0;32mI (208485) app: SoftAP transport: Connected![0m
+[0;32mI (208775) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+I (209075) wifi:<ba-add>idx:2 (ifx:1, a6:a7:33:a5:b4:02), tid:0, ssn:17, winSize:64
+I (223165) wifi:station: a6:a7:33:a5:b4:02 leave, AID = 1, bss_flags is 134243, bss:0x3ffca644
+I (223165) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<0,0>, prof:1
+I (223165) wifi:<ba-del>idx:2, tid:0
+[0;32mI (223175) app: SoftAP transport: Disconnected![0m
+I (229245) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<0,0>, prof:1
+I (229245) wifi:station: a6:a7:33:a5:b4:02 join, AID=1, bgn, 20
+[0;32mI (229245) app: SoftAP transport: Connected![0m
+[0;32mI (229405) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+I (229615) wifi:<ba-add>idx:2 (ifx:1, a6:a7:33:a5:b4:02), tid:0, ssn:16, winSize:64
+I (305525) wifi:station: a6:a7:33:a5:b4:02 leave, AID = 1, bss_flags is 134259, bss:0x3ffca644
+I (305535) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<0,0>, prof:1
+I (305535) wifi:<ba-del>idx:2, tid:0
+[0;32mI (305535) app: SoftAP transport: Disconnected![0m
+I (361995) wifi:new:<1,0>, old:<1,0>, ap:<1,1>, sta:<0,0>, prof:1
+I (361995) wifi:station: d6:e1:eb:16:d6:85 join, AID=1, bgn, 20
+[0;32mI (362005) app: SoftAP transport: Connected![0m
+[0;32mI (362195) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.3[0m
+[0;32mI (362635) security2: Using salt and verifier to generate public key...[0m
+I (362955) wifi:<ba-add>idx:2 (ifx:1, d6:e1:eb:16:d6:85), tid:0, ssn:16, winSize:64
+[0;32mI (362965) app: Secured session established![0m
+[0;32mI (372595) app: Received Wi-Fi credentials
+	SSID     : PROV_EA3840
+	Password : [0m
+I (376435) wifi:primary chan differ, old=1, new=1, start CSA timer
+I (376435) wifi:new:<1,1>, old:<1,0>, ap:<1,1>, sta:<1,1>, prof:1
+I (376435) wifi:state: init -> auth (b0)
+I (376445) wifi:state: auth -> assoc (0)
+I (376455) wifi:state: assoc -> run (10)
+I (376455) wifi:connected with PROV_EA3840, aid = 2, channel 1, 40U, bssid = 24:0a:c4:ea:38:41
+I (376455) wifi:security: Open Auth, phy: bgn, rssi: -26
+I (376475) wifi:pm start, type: 1
+
+I (376505) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+[0;32mI (377485) app: Connected with IP Address:192.168.4.3[0m
+[0;32mI (377485) esp_netif_handlers: sta ip: 192.168.4.3, mask: 255.255.255.0, gw: 192.168.4.1[0m
+[0;32mI (377485) wifi_prov_mgr: STA Got IP[0m
+[0;32mI (377495) app: Provisioning successful[0m
+[0;32mI (377495) app: Hello World![0m
+[0;32mI (378495) app: Hello World![0m
+[0;32mI (379495) app: Hello World![0m
+I (380255) wifi:station: d6:e1:eb:16:d6:85 leave, AID = 1, bss_flags is 134259, bss:0x3ffca644
+I (380255) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<1,1>, prof:1
+I (380265) wifi:<ba-del>idx:2, tid:0
+[0;32mI (380265) app: SoftAP transport: Disconnected![0m
+[0;32mI (380495) app: Hello World![0m
+I (381225) wifi:mode : sta (24:0a:c4:ea:36:c8)
+[0;32mI (381235) wifi_prov_mgr: Provisioning stopped[0m
+[0;32mI (381495) app: Hello World![0m
+[0;32mI (382495) app: Hello World![0m
+[0;32mI (383495) app: Hello World![0m
+[0;32mI (384495) app: Hello World![0m
+[0;32mI (385495) app: Hello World![0m
+[0;32mI (386495) app: Hello World![0m
+[0;32mI (387495) app: Hello World![0m
+[0;32mI (388495) app: Hello World![0m
+[0;32mI (389495) app: Hello World![0m
+[0;32mI (390495) app: Hello World![0m
+[0;32mI (391495) app: Hello World![0m
+[0;32mI (392495) app: Hello World![0m
+[0;32mI (393495) app: Hello World![0m
+[0;32mI (394495) app: Hello World![0m
+[0;32mI (395495) app: Hello World![0m
+[0;32mI (396495) app: Hello World![0m
+[0;32mI (397495) app: Hello World![0m
+[0;32mI (398495) app: Hello World![0m
+[0;32mI (399495) app: Hello World![0m
+[0;32mI (400495) app: Hello World![0m
+[0;32mI (401495) app: Hello World![0m
+[0;32mI (402495) app: Hello World![0m
+[0;32mI (403495) app: Hello World![0m
+[0;32mI (404495) app: Hello World![0m
+[0;32mI (405495) app: Hello World![0m
+[0;32mI (406495) app: Hello World![0m
+[0;32mI (407495) app: Hello World![0m
+[0;32mI (408495) app: Hello World![0m
+[0;32mI (409495) app: Hello World![0m
+[0;32mI (410495) app: Hello World![0m
+[0;32mI (411495) app: Hello World![0m
+[0;32mI (412495) app: Hello World![0m
+[0;32mI (413495) app: Hello World![0m
+[0;32mI (414495) app: Hello World![0m
+[0;32mI (415495) app: Hello World![0m
+[0;32mI (416495) app: Hello World![0m
+[0;32mI (417495) app: Hello World![0m
+[0;32mI (418495) app: Hello World![0m
+[0;32mI (419495) app: Hello World![0m
+[0;32mI (420495) app: Hello World![0m
+[0;32mI (421495) app: Hello World![0m
+[0;32mI (422495) app: Hello World![0m
