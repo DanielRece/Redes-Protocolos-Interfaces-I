@@ -1,5 +1,6 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
   "git.ignoreLimitWarning": true,
-  "idf.flashType": "UART"
+  "idf.flashType": "UART",
+  "idf.adapterTargetName": "esp32"
 }

@@ -80,61 +80,82 @@ static int s_retry_num = 0;
 static void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data)
 {
-    if (event_base == WIFI_EVENT){
-        switch (event_id)
-        {
-            case WIFI_EVENT_SCAN_DONE:
-                ESP_LOGI(TAG, "Scan completed.");
-                break;
-            case WIFI_EVENT_STA_START:
-                ESP_LOGI(TAG, "starting wifi connection");
-                esp_wifi_connect();
-                break;
-            case WIFI_EVENT_STA_STOP:
-                ESP_LOGI(TAG, "network interface finished");
-                break;
-            case WIFI_EVENT_STA_CONNECTED:
-                ESP_LOGI(TAG, "waiting for an IP adress");
-                break;
-            case WIFI_EVENT_STA_DISCONNECTED:
-                if (s_retry_num < EXAMPLE_ESP_MAXIMUM_RETRY_STA) {
-                    ESP_LOGW(TAG, "Wifi not connected");
-                    esp_wifi_connect();
-                    s_retry_num++;
-                    ESP_LOGI(TAG, "retrying to connect to the AP");
-                } else {
-                    xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
-                }
-                ESP_LOGE(TAG,"connect to the AP fail, no more tries");
-                break;
-            default:
-                break;
-        }
+	if (event_base == WIFI_EVENT){
+		switch(event_id){
+		case WIFI_EVENT_STA_START:
+			esp_wifi_connect();
+			break;
+		case WIFI_EVENT_STA_DISCONNECTED:
+			ESP_LOGW(TAG, "WIFI_EVENT_STA_DISCONNECTED, REASON: %d", ((wifi_event_sta_disconnected_t*)event_data)->reason);
+	        if (s_retry_num < EXAMPLE_ESP_MAXIMUM_RETRY_STA) {
+	            esp_wifi_connect();
+	            s_retry_num++;
+	            ESP_LOGI(TAG, "retry to connect to the AP");
+	        } else {
+	            xEventGroupSetBits(s_wifi_event_group, WIFI_FAIL_BIT);
+	        }
+	        ESP_LOGI(TAG,"connect to the AP fail");
+			break;
+
+		case WIFI_EVENT_STA_STOP:
+			ESP_LOGI(TAG,"WIFI_EVENT_STA_STOP");
+			break;
+
+		case WIFI_EVENT_STA_CONNECTED:
+			ESP_LOGI(TAG,"WIFI_EVENT_STA_CONNECTED");
+			break;
+
+		case WIFI_EVENT_STA_AUTHMODE_CHANGE:
+			ESP_LOGI(TAG,"WIFI_EVENT_STA_AUTHMODE_CHANGE");
+			break;
+
+		case WIFI_EVENT_AP_START:
+			ESP_LOGI(TAG,"WIFI_EVENT_AP_START");
+			break;
+
+		case WIFI_EVENT_AP_STOP:
+			ESP_LOGI(TAG,"WIFI_EVENT_AP_STOP");
+			break;
+
+		case WIFI_EVENT_AP_PROBEREQRECVED:
+			ESP_LOGI(TAG,"WIFI_EVENT_AP_PROBEREQRECVED");
+			break;
+
+		case WIFI_EVENT_AP_STACONNECTED:
+			ESP_LOGI(TAG,"WIFI_EVENT_AP_STACONNECTED, station "MACSTR" join, AID=%d",MAC2STR(((wifi_event_ap_staconnected_t *) event_data)->mac)
+					,((wifi_event_ap_staconnected_t *) event_data)->aid);
+			break;
+
+		case WIFI_EVENT_AP_STADISCONNECTED:
+			ESP_LOGW(TAG,"WIFI_EVENT_AP_STADISCONNECTED, station "MACSTR" leave, AID=%d",MAC2STR(((wifi_event_ap_stadisconnected_t *) event_data)->mac)
+					,((wifi_event_ap_stadisconnected_t *) event_data)->aid);
+			break;
+
+		default:
+			ESP_LOGW(TAG,"UNKNOWN WIFI_EVENT (%ld)", event_id);
+			break;
+		}
+	}
+
+
+	if (event_base == IP_EVENT){
+		switch (event_id){
+		case IP_EVENT_STA_GOT_IP:
+			ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&((ip_event_got_ip_t*) event_data)->ip_info.ip));
+			s_retry_num = 0;
+			xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
+			break;
+
+		case IP_EVENT_STA_LOST_IP:
+			ESP_LOGW(TAG,"IP_EVENT_STA_LOST_IP");
+			break;
+
+		default:
+			ESP_LOGW(TAG,"UNKNOWN IP_EVENT (%ld)", event_id);
+			break;
+		}
     }
 }
-
-static void wifi_event_handler_ap(void* arg, esp_event_base_t event_base,
-                                    int32_t event_id, void* event_data)
-{
-    if (event_id == WIFI_EVENT_AP_STACONNECTED) {
-        wifi_event_ap_staconnected_t* event = (wifi_event_ap_staconnected_t*) event_data;
-        ESP_LOGI(TAG, "station "MACSTR" join, AID=%d",
-                 MAC2STR(event->mac), event->aid);
-    } else if (event_id == WIFI_EVENT_AP_STADISCONNECTED) {
-        wifi_event_ap_stadisconnected_t* event = (wifi_event_ap_stadisconnected_t*) event_data;
-        ESP_LOGI(TAG, "station "MACSTR" leave, AID=%d",
-                 MAC2STR(event->mac), event->aid);
-    }
-}
-
-
-static void ip_handler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data)
-{
-    ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
-    ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
-    xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
-}
-
 
 void wifi_init_ap_sta(void)
 {
@@ -142,9 +163,9 @@ void wifi_init_ap_sta(void)
     s_wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_ap();
     esp_netif_create_default_wifi_sta();
-
+    esp_netif_create_default_wifi_ap();
+    
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
 
@@ -158,7 +179,7 @@ void wifi_init_ap_sta(void)
                                                         &instance_any_id));
     ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT,
                                                         IP_EVENT_STA_GOT_IP,
-                                                        &ip_handler,
+                                                        &event_handler,
                                                         NULL,
                                                         &instance_got_ip));
 
@@ -167,23 +188,10 @@ void wifi_init_ap_sta(void)
         .sta = {
             .ssid = EXAMPLE_ESP_WIFI_SSID_STA,
             .password = EXAMPLE_ESP_WIFI_PASS_STA,
-            /* Authmode threshold resets to WPA2 as default if password matches WPA2 standards (pasword len => 8).
-             * If you want to connect the device to deprecated WEP/WPA networks, Please set the threshold value
-             * to WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK and set the password with length and format matching to
-             * WIFI_AUTH_WEP/WIFI_AUTH_WPA_PSK standards.
-             */
-            .threshold.authmode = ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD_STA,
-            .sae_pwe_h2e = ESP_WIFI_SAE_MODE_STA,
-            .sae_h2e_identifier = EXAMPLE_H2E_IDENTIFIER,
+            .threshold.authmode = WIFI_AUTH_WPA2_PSK,
         },
     };
-
-    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-    ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT,
-                                                        ESP_EVENT_ANY_ID,
-                                                        &wifi_event_handler_ap,
-                                                        NULL,
-                                                        &instance_any_id));
+    
     wifi_config_t wifi_config_ap = {
         .ap = {
             .ssid = EXAMPLE_ESP_WIFI_SSID_AP,
@@ -192,22 +200,25 @@ void wifi_init_ap_sta(void)
             .password = EXAMPLE_ESP_WIFI_PASS_AP,
             .max_connection = EXAMPLE_MAX_STA_CONN_AP,
             #ifdef CONFIG_ESP_WIFI_SOFTAP_SAE_SUPPORT
-            .authmode = WIFI_AUTH_WPA3_PSK,
-            .sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
-            #else /* CONFIG_ESP_WIFI_SOFTAP_SAE_SUPPORT */
+                .authmode = WIFI_AUTH_WPA3_PSK,
+                .sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
+            #else
                 .authmode = WIFI_AUTH_WPA2_PSK,
             #endif
-            .pmf_cfg = {
-                    .required = true,
-            },
-        },
+        }
     };
+
+    if (strlen(EXAMPLE_ESP_WIFI_PASS_AP) == 0) {
+        wifi_config_ap.ap.authmode = WIFI_AUTH_OPEN;
+    }
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config_sta));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP, &wifi_config_ap));
 
     ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_LOGI(TAG, "wifi_init in ap_sta mode finished.");
 
     EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
             WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
@@ -224,12 +235,8 @@ void wifi_init_ap_sta(void)
     } else {
         ESP_LOGE(TAG, "UNEXPECTED EVENT");
     }
-
-    if (strlen(EXAMPLE_ESP_WIFI_PASS_AP) == 0) {
-        wifi_config_ap.ap.authmode = WIFI_AUTH_OPEN;
-    };
     
-    ESP_LOGI(TAG, "wifi_init_ap_sta finished. AP_SSID:%s AP_password:%s AP_channel:%d",
+    ESP_LOGI(TAG, "AP_SSID:%s AP_password:%s AP_channel:%d",
              EXAMPLE_ESP_WIFI_SSID_AP, EXAMPLE_ESP_WIFI_PASS_AP, EXAMPLE_ESP_WIFI_CHANNEL_AP);
 
 }
