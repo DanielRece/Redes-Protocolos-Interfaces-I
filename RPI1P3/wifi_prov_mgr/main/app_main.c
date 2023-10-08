@@ -292,7 +292,7 @@ void app_main(void)
     }
 
     /* Initialize TCP/IP */
-    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_netifF_init());
 
     /* Initialize the event loop */
     ESP_ERROR_CHECK(esp_event_loop_create_default());
