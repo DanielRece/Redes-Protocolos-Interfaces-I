@@ -1,0 +1,26 @@
+menu "Example Configuration"
+
+    config EXAMPLE_DUMP_ADV_DATA_AND_SCAN_RESP
+        bool "Dump whole adv data and scan response data in example"
+        default n
+
+    config KNOWN_BLE_DEVICE_MACS
+        string "Direcciones MAC BLE conocidas"
+        default NULL
+        help
+            Ingresa las direcciones MAC BLE conocidas, separadas por comas.
+
+    config SCAN_TIME
+        int "Tiempo de Escaneo (s)"
+        default 5
+        help
+            Tiempo (en segundos) que el dispositivo ESP32 estará escaneando si no encuentra un dispositivo al que conectarse.
+    
+    config WAIT_TIME
+        int "Tiempo de Espera (s)"
+        default 10
+        help
+            Tiempo (en segundos) que el dispositivo ESP32 espera antes de iniciar un nuevo escaneo al no encontrar un dispositivo al que conectarse.
+    
+        
+endmenu
